@@ -58,7 +58,7 @@ public class LoginServiceImpl implements LoginServices{
 			String key = RandomString.make(6);
 			
 			CurrentUserSession cus =  
-					new CurrentUserSession(existingUser.getId(), key,LocalDateTime.now());
+				new CurrentUserSession(existingUser.getId(), key,LocalDateTime.now());
 			
 			userSession.save(cus);
 			

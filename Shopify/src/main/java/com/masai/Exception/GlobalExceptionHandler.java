@@ -27,6 +27,16 @@ public class GlobalExceptionHandler {
 //		return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
 //	}
 
+	@ExceptionHandler(CategoryNotFoundException.class)
+	public ResponseEntity<MyErrorDetails>categoryExceptionHandler(CategoryNotFoundException ce,WebRequest req){
+		MyErrorDetails err=new MyErrorDetails(LocalDateTime.now(),ce.getMessage(),req.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(err,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler(ProductNotFoundException.class)
+	public ResponseEntity<MyErrorDetails> productExceptionHandler(ProductNotFoundException pe,WebRequest req){
+		MyErrorDetails err=new MyErrorDetails(LocalDateTime.now(),pe.getMessage(),req.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(err,HttpStatus.BAD_REQUEST);
+	}
 	
 
 	
